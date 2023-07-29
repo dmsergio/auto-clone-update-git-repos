@@ -1,0 +1,9 @@
+class AutoGit:
+    def __init__(self) -> None:
+        ...
+
+    def clone(self) -> None:
+        ...
+
+    def pull(self) -> None:
+        ...

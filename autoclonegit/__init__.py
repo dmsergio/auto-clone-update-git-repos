@@ -6,15 +6,13 @@ __version__ = "0.1.0"
 
 (
     SUCCESS,
-    DIR_ERROR,
     FILE_ERROR,
     PERMISSION_ERROR,
     YAML_ERROR,
-) = range(5)
+) = range(4)
 
 
 ERRORS = {
-    DIR_ERROR: "config directory error",
-    FILE_ERROR: "config file error",
+    FILE_ERROR: "file not found",
     PERMISSION_ERROR: "permission error",
 }
