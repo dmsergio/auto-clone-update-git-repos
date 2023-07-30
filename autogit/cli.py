@@ -1,9 +1,13 @@
+from pathlib import Path
 from typing import Optional
 
 import typer
 
 from autogit import __app_name__
 from autogit import __version__
+from autogit.autogit import AutoGit
+from autogit.exceptions import DestFolderException
+from autogit.exceptions import FileDoesNotExists
 
 
 app = typer.Typer()
@@ -15,14 +19,26 @@ def clone(
         help="Yaml file with the Git repositories to clone.",
     ),
     dest_folder: str = typer.Option(
-        ".",
+        str(Path.home()),
         "--dest-folder",
         "-d",
-        help="Folder used to clone the Git repositories."
+        help="Folder used to clone the Git repositories.",
     ),
 ) -> None:
 
-    typer.echo(file)
+    try:
+        autogit = AutoGit(file=file, dest_folder=dest_folder)
+
+    except FileDoesNotExists as e:
+        typer.secho(str(e), fg=typer.colors.RED)
+        raise typer.Exit(1)
+
+    except DestFolderException as e:
+        typer.secho(str(e), fg=typer.colors.RED)
+        raise typer.Exit(1)
+
+    autogit.clone()
+
     raise typer.Exit()
 
 

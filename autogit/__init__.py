@@ -7,12 +7,14 @@ __version__ = "0.1.0"
 (
     SUCCESS,
     FILE_ERROR,
+    DEST_FOLDER_ERROR,
     PERMISSION_ERROR,
     YAML_ERROR,
-) = range(4)
+) = range(5)
 
 
 ERRORS = {
-    FILE_ERROR: "file not found",
-    PERMISSION_ERROR: "permission error",
+    FILE_ERROR: "File not found",
+    DEST_FOLDER_ERROR: "Folder not found",
+    PERMISSION_ERROR: "Permission error",
 }
