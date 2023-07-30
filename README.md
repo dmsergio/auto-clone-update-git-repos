@@ -1,1 +1,1 @@
-# auto-clone-update-git-repos
+# Auto Git

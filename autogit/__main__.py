@@ -1,7 +1,7 @@
 """Auto Git fetch entry point script."""
 
-from autoclonegit import __app_name__
-from autoclonegit import cli
+from autogit import __app_name__
+from autogit import cli
 
 
 def main() -> None:

@@ -1,9 +1,9 @@
 import pytest
 from typer.testing import CliRunner
 
-from autoclonegit import __app_name__
-from autoclonegit import __version__
-from autoclonegit import cli
+from autogit import __app_name__
+from autogit import __version__
+from autogit import cli
 
 
 runner = CliRunner()

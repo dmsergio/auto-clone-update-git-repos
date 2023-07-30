@@ -2,8 +2,8 @@ from typing import Optional
 
 import typer
 
-from autoclonegit import __app_name__
-from autoclonegit import __version__
+from autogit import __app_name__
+from autogit import __version__
 
 
 app = typer.Typer()

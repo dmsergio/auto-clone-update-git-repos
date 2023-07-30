@@ -2,7 +2,7 @@ from pathlib import Path
 
 import yaml
 
-from autoclonegit.exceptions import YamlFileNotExistsException
+from autogit.exceptions import YamlFileDoesNotExists
 
 
 class YamlParser:
@@ -10,7 +10,7 @@ class YamlParser:
         file = Path(file_path)
 
         if not file.exists():
-            raise YamlFileNotExistsException(f"File {file_path} not found!")
+            raise YamlFileDoesNotExists(f"File {file_path} not found!")
 
         self.yaml_file = file
 

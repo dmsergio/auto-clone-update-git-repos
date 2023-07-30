@@ -1,6 +1,6 @@
 """Top-level package for Auto Git fetch."""
 
-__app_name__ = "autoclonegit"
+__app_name__ = "autogit"
 __version__ = "0.1.0"
 
 
