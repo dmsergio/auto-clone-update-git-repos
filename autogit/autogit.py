@@ -54,7 +54,6 @@ class AutoGit:
         with self._file.open("r") as content:
             content_dict = yaml.safe_load(content)
 
-        print(content_dict)
         return content_dict
 
     def clone(self) -> None:

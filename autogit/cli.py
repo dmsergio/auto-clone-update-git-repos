@@ -14,7 +14,7 @@ app = typer.Typer()
 
 
 def print_bye_message() -> None:
-    print()
+    typer.secho("")
     typer.secho("┌──────────────────────────────┐")
     typer.secho("│ Thanks for use AutoGit. Bye! │")
     typer.secho("└──────────────────────────────┘ ")
