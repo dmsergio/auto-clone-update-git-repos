@@ -14,10 +14,10 @@ app = typer.Typer()
 
 
 def print_bye_message() -> None:
-    typer.secho("")
-    typer.secho("┌──────────────────────────────┐")
-    typer.secho("│ Thanks for use AutoGit. Bye! │")
-    typer.secho("└──────────────────────────────┘")
+    typer.echo("")
+    typer.echo("┌──────────────────────────────┐")
+    typer.echo("│ Thanks for use AutoGit. Bye! │")
+    typer.echo("└──────────────────────────────┘")
 
 
 def run_process(file: str, dest_folder: str, action: str) -> None:
@@ -75,7 +75,7 @@ def pull(
 
 def _version_callback(value: bool) -> None:
     if value:
-        typer.echo(f"{__app_name__} v{__version__}")
+        typer.echo(f"{__app_name__} version {__version__}")
         raise typer.Exit()
 
 

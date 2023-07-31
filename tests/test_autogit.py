@@ -9,8 +9,8 @@ from autogit import cli
 runner = CliRunner()
 
 @pytest.mark.parametrize("command", ["--version", "-v"])
-def test_version(command):
+def test_version(command: str) -> None:
     result = runner.invoke(cli.app, [command])
 
     assert result.exit_code is 0
-    assert result.stdout == f"{__app_name__} v{__version__}\n"
+    assert result.stdout == f"{__app_name__} version {__version__}\n"
