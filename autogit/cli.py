@@ -17,9 +17,29 @@ def print_bye_message() -> None:
     typer.secho("")
     typer.secho("┌──────────────────────────────┐")
     typer.secho("│ Thanks for use AutoGit. Bye! │")
-    typer.secho("└──────────────────────────────┘ ")
+    typer.secho("└──────────────────────────────┘")
 
-@app.command()
+
+def run_process(file: str, dest_folder: str, action: str) -> None:
+    try:
+        autogit = AutoGit(file=file, dest_folder=dest_folder)
+
+    except FileDoesNotExists as e:
+        typer.secho(str(e), fg=typer.colors.RED)
+        raise typer.Exit(1)
+
+    except DestFolderException as e:
+        typer.secho(str(e), fg=typer.colors.RED)
+        raise typer.Exit(1)
+
+    getattr(autogit, action)()
+
+    print_bye_message()
+
+    raise typer.Exit()
+
+
+@app.command(help="Clone git repositories.")
 def clone(
     file: str = typer.Argument(
         default=None,
@@ -33,22 +53,24 @@ def clone(
     ),
 ) -> None:
 
-    try:
-        autogit = AutoGit(file=file, dest_folder=dest_folder)
+    run_process(file, dest_folder, "clone")
 
-    except FileDoesNotExists as e:
-        typer.secho(str(e), fg=typer.colors.RED)
-        raise typer.Exit(1)
 
-    except DestFolderException as e:
-        typer.secho(str(e), fg=typer.colors.RED)
-        raise typer.Exit(1)
+@app.command(help="Pull git repositories.")
+def pull(
+    file: str = typer.Argument(
+        default=None,
+        help="Yaml file with the Git repositories to pull.",
+    ),
+    dest_folder: str = typer.Option(
+        str(Path.home()),
+        "--dest-folder",
+        "-d",
+        help="Folder used to pull the Git repositories.",
+    ),
+) -> None:
 
-    autogit.clone()
-
-    print_bye_message()
-
-    raise typer.Exit()
+    run_process(file, dest_folder, "pull")
 
 
 def _version_callback(value: bool) -> None:
