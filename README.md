@@ -30,7 +30,7 @@ $ source venv/bin/activate
 - Clone the repositories in a specific location:
 
     ```shell
-    python -m autogit clone /location/of/my/repos.yaml -d /home/me/my-repos/
+    (venv) $ python -m autogit clone /location/of/my/repos.yaml -d /home/me/my-repos/
     ```
 
     - Directory content before to run the script:
