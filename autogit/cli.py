@@ -12,6 +12,13 @@ from autogit.exceptions import FileDoesNotExists
 
 app = typer.Typer()
 
+
+def print_bye_message() -> None:
+    print()
+    typer.secho("┌──────────────────────────────┐")
+    typer.secho("│ Thanks for use AutoGit. Bye! │")
+    typer.secho("└──────────────────────────────┘ ")
+
 @app.command()
 def clone(
     file: str = typer.Argument(
@@ -38,6 +45,8 @@ def clone(
         raise typer.Exit(1)
 
     autogit.clone()
+
+    print_bye_message()
 
     raise typer.Exit()
 
