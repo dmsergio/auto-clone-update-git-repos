@@ -5,6 +5,7 @@ import typer
 import yaml
 
 from autogit.exceptions import DestFolderException
+from autogit.exceptions import ExecGitCommandError
 from autogit.exceptions import FileDoesNotExists
 
 
@@ -127,7 +128,7 @@ class AutoGit:
                 self.__exec_command(action="Pulling", path=repo_folder)
 
             except Exception as e:
-                typer.secho(f"Error {e}", fg=typer.colors.BRIGHT_RED)
+                typer.secho(f"{e}", fg=typer.colors.BRIGHT_RED)
                 self.error_total += 1
                 continue
 
@@ -156,8 +157,10 @@ class AutoGit:
                 stdout=subprocess.PIPE,
             ) as process:
 
-                while process.poll() is None:
-                    typer.secho(process.stdout.read1().decode("utf-8"))
+                response_code = process.wait()
+                if response_code:
+                    self.__command = None
+                    raise ExecGitCommandError("Git command unsuccessful!")
 
             self.__command = None
 

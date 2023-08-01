@@ -79,8 +79,16 @@ Suppose we rely on a yaml file with ten repositories.
 
 - Clone command. 8 ok, 1 skipped (already exists), 1 error.
 
+    ![Clone command output](./docs/img/clone-01.png)
+
 - Clone command. 9 skipped (already exists), 1 error.
+
+    ![Clone command output](./docs/img/clone-02.png)
 
 - Clone command. 10 ok.
 
+    ![Clone command output](./docs/img/clone-03.png)
+
 - Pull command. 10 ok.
+
+    ![Pull command output](./docs/img/pull-01.png)
