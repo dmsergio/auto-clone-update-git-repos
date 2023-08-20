@@ -2,11 +2,13 @@
 
 ## Install
 
+Recommended install it in a virtual env.
+
 ```shell
 $ python -m venv venv
 $ source venv/bin/activate
-(venv) $ pip install -r requirements.txt
-(venv) $ python -m autogit --version
+(venv) $ pip install -e autogit_proj
+(venv) $ autogit --version
 ```
 
 ## Yaml file
@@ -36,7 +38,7 @@ stock-logistics-workflow:
 Clone each repository set at the yaml file in the directory specified:
 
 ```shell
-(venv) $ python -m autogit clone /location/of/my/repos.yaml -d /home/me/my-repos/
+(venv) $ autogit clone /location/of/my/repos.yaml -d /home/me/my-repos/
 ```
 
 Directory content before to run the script:
@@ -64,7 +66,7 @@ The script check if the repo already exists in the directory before to clone it.
 Pull each repository set at the yaml file in the directory specified:
 
 ```shell
-(venv) $ python -m autogit pull /location/of/my/repos.yaml -d /home/me/my-repos/
+(venv) $ autogit pull /location/of/my/repos.yaml -d /home/me/my-repos/
 ```
 
 If the repository does not exist inside the directory specified, it will be skipped.
