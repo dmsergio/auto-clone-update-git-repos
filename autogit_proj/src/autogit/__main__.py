@@ -1,11 +1,10 @@
 """Auto Git fetch entry point script."""
 
-from autogit import __app_name__
-from autogit import cli
+import autogit
 
 
 def main() -> None:
-    cli.app(prog_name=__app_name__)
+    autogit.app(prog_name=autogit.__app_name__)
 
 
 if __name__ == "__main__":

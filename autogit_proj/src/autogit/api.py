@@ -4,9 +4,13 @@ from pathlib import Path
 import typer
 import yaml
 
+<<<<<<< Updated upstream:autogit/autogit.py
 from autogit.exceptions import DestFolderException
 from autogit.exceptions import ExecGitCommandError
 from autogit.exceptions import FileDoesNotExists
+=======
+import autogit
+>>>>>>> Stashed changes:autogit_proj/src/autogit/api.py
 
 
 class AutoGit:
@@ -31,7 +35,7 @@ class AutoGit:
         file = Path(value)
 
         if not file.exists():
-            raise FileDoesNotExists(f"File '{file}' not found!")
+            raise autogit.FileDoesNotExists(f"File '{file}' not found!")
 
         self._file = file
 
@@ -47,7 +51,7 @@ class AutoGit:
             folder.mkdir(exist_ok=True)
 
         except OSError:
-            raise DestFolderException(f"Folder '{value}' not found!")
+            raise autogit.DestFolderException(f"Folder '{value}' not found!")
 
         self._dest_folder = folder
 
