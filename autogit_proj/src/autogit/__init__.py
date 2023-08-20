@@ -1,6 +1,6 @@
 """Top-level package for Auto Git fetch."""
-from .api import *
-from .cli import app
+from .api import *  # noqa
+from .cli import app  # noqa
 
 
 __app_name__ = "AutoGit"

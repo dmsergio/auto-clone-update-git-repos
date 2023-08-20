@@ -7,7 +7,7 @@ Recommended install it in a virtual env.
 ```shell
 $ python -m venv venv
 $ source venv/bin/activate
-(venv) $ pip install -e autogit_proj
+(venv) $ pip install -e autogit_proj/
 (venv) $ autogit --version
 ```
 

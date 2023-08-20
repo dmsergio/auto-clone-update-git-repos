@@ -4,13 +4,7 @@ from pathlib import Path
 import typer
 import yaml
 
-<<<<<<< Updated upstream:autogit/autogit.py
-from autogit.exceptions import DestFolderException
-from autogit.exceptions import ExecGitCommandError
-from autogit.exceptions import FileDoesNotExists
-=======
 import autogit
->>>>>>> Stashed changes:autogit_proj/src/autogit/api.py
 
 
 class AutoGit:
@@ -164,7 +158,7 @@ class AutoGit:
                 response_code = process.wait()
                 if response_code:
                     self.__command = None
-                    raise ExecGitCommandError("Git command unsuccessful!")
+                    raise autogit.ExecGitCommandError("Git command unsuccessful!")
 
             self.__command = None
 
